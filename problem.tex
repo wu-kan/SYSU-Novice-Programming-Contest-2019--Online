@@ -1,0 +1,312 @@
+\documentclass{ctexart}
+\renewcommand{\familydefault}{\ttdefault}
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{geometry}
+\geometry{top=20mm,bottom=20mm,left=20mm,right=20mm}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyhead[C]{\bf \footnotesize SYSU Novice Programming Contest 2019, Online, December 15}
+\fancyfoot[C]{\bf \thepage}
+\setlength{\topmargin}{-20mm} %页眉到页边的距离
+
+\title{\bf SYSU Novice Programming Contest 2019, Online}
+\author{}
+\date{\bf December 15, 2019}
+
+\renewcommand\contentsname{}
+\renewcommand\thesection{\Large \Alph{section}.}
+
+\def\problem#1{\clearpage \section{\Large \bf #1}}
+\def\subitem#1{\noindent{\large \bf \\#1}\nopagebreak}
+\def\input{\subitem{Input}}
+\def\output{\subitem{Output}}
+\def\sample{\subitem{Sample}}
+\def\tabincell#1#2{\begin{tabular}[t]{@{}#1@{}}#2\end{tabular}}
+
+\begin{document}
+\maketitle
+\tableofcontents
+\thispagestyle{fancy}
+
+%-----
+\problem{FranChouChou}
+
+\textsf{FranChouChou is an idol group founded by Kōtarō Tatsumi and led by Saki Nikaidō, consisting of zombies of legendary girls resurrected by Kotaro. Their objective is to save Saga and resurrect the local idol trend in the process.}
+
+\noindent\includegraphics[width=\textwidth]{p44.jpg}
+
+\textsf{The idol group's tentative name was Death Musume, which was later changed to Green Face by Kotaro. The idol members of the group, however, found the names not satisfactory, eventually deciding to rename it to Franchouchou based on the sound Tae made when she sneezed.}
+
+\textsf{The followings are members in the group:}
+
+\begin{itemize}
+\item Zombie \#0 Yamada Tae
+\item Zombie \#1 Minamoto Sakura
+\item Zombie \#2 Nikaido Saki
+\item Zombie \#3 Mizuno Ai
+\item Zombie \#4 Konno Junko
+\item Zombie \#5 Yugiri
+\item Zombie \#6 Hoshikawa Lily
+\end{itemize}
+
+\noindent\includegraphics[width=\textwidth]{p43.jpg}
+
+\textsf{Now with given a name of an idol, you are asked about her/his number.}
+
+\input
+
+\textsf{The input contains only single line, one of the names mentioned above.}
+
+\output
+
+\textsf{You should output the number of the zombie.}
+
+\sample
+
+\noindent\begin{tabular}{|p{5cm}|p{5cm}|} \hline
+Input & Output\\ \hline
+\tabincell{l}{Mizuno Ai}& \tabincell{l}{3} \\ \hline
+\end{tabular}
+
+%-----
+\problem{Number}
+
+\textsf{Reeeeein is good at math problems, because he always holds $n-1$ integers in his brain, and every element exactly appears $k$ times. However, when he once took part in a programming contest, a new integer suddenly squeezed into his brain. This made him so confused that he wrote 5 mistakes within 20 code lines.}
+
+\textsf{Now please help Reeeeein to find this new integer which appears exactly once!}
+
+\input
+
+\textsf{The first line contains two integers $n,k$.}
+
+\textsf{The second line contains $n$ integers $a_0,a_1,\ldots,a_{n-1}$.}
+
+\textsf{$1<k<n\leq114514$}
+
+\textsf{$\forall i \in [0,n),a_i \in [0,1919810)$}
+
+\output
+
+\textsf{You should output the number.}
+
+\sample
+
+\noindent\begin{tabular}{|p{5cm}|p{5cm}|} \hline
+Input & Output\\ \hline
+\tabincell{l}{
+5 2\\
+2 2 3 29 3
+}& \tabincell{l}{
+29
+} \\ \hline
+\end{tabular}
+
+\subitem{\\Note}
+
+\textsf{The best algorithm for this problem has a linear time complexity and a constant space complexity. However, solutions with $O(n\log n)$ time complexity will also be accepted!}
+
+%-----
+\problem{Markdown}
+
+\textsf{Ender starts his blog life today! The first thing for him to learn is markdown, which is a system for annotating a document in a way that is syntactically distinguishable from the text. The user can control the display of the document; formatting words as bold or italic, adding images, and creating lists are just a few of the things one can do with markdown, and the markdown renderer will convert the text to html format.}
+
+\textsf{There are many implementations of markdown renderer. But we only consider a (extremely!) simplified subset here.}
+
+\begin{enumerate}
+  \item title: Convert `\# TITLE` to `<h1>TITLE</h1>`, `\#\# TITLE` to `<h2>TITLE</h2>`, $\ldots$, `\#\#\#\#\#\# TITLE` to `<h6>TITLE</h6>`.
+  \item link: Convert `[TEXT](LINK)` to `<a href="LINK">TEXT</a>` tag.
+  \item newline: Put a `<br/>` tag to the end of a line.
+\end{enumerate}
+
+\textsf{You can simply assume that: }
+
+\begin{enumerate}
+  \item No extra space at the beginning and end of each line.
+  \item Any character in `<>` will not appear in the context.
+  \item There is a whitespace between `\#` and TITLE.
+  \item There are no links in title.
+  \item The title always occupies a whole line.
+  \item `\#` will not appear in the context unless it represents a title.
+  \item Any character in `[]()` will not appear in the context unless it is a link.
+  \item `[]()` will not be nested.
+\end{enumerate}
+
+\textsf{If you still have any questions, you can refer to the sample output.}
+
+\input
+
+\textsf{A markdown style text, only using the rules above.}
+
+\textsf{An empty line represents the end of input, and should be ignored.}
+
+\textsf{The total length of the input will not exceed $10^6$.}
+
+\output
+
+\textsf{A html format text, each line of input corresponds to each line of output.}
+
+\textsf{You should not output extra whitespaces or emptylines, but a newline at the end of output will be ignored.}
+
+\sample
+
+\noindent\begin{tabular}{|p{\textwidth}|} \hline
+Input \\ \hline
+\tabincell{l}{
+\# Welcome\\
+Welcome to [my blog](https://ender-coder.github.io/)!\\
+\#\# H2 title\\
+\\
+}\\ \hline
+Output \\ \hline
+\tabincell{l}{
+<h1>Welcome</h1><br/>\\
+Welcome to <a href="https://ender-coder.github.io/">my blog</a>!<br/>\\
+<h2>H2 title</h2><br/>\\
+} \\ \hline
+
+\end{tabular}
+
+\subitem{\\Note}
+
+\textsf{You can output to a "html" file and open it with Web browser.}
+
+\problem{Werewolves}
+
+\textsf{"Werewolves" is a popular card game among young people. In the basic game, there are 2 different groups: the werewolves and the villagers. The purpose of each side is to kill all the opponents, and at least one of themselves survives. During each round of the game, the player will debate players they think are werewolves or not.}
+
+\textsf{Since Emily plays quite well in the Werewolves games, her friends decided to confuse her in the following ways: Like "Player a is a werewolf, or player b is a villager", the statements they give will contain two pieces of information connected by "or" relationships, of which only one is true.}
+
+\textsf{Now Emily is going to point out all the werewolves, so she wants to know if there's a situation (even if all of them are werewolves or villagers) that meets the above restrictions.}
+
+\input
+
+\textsf{The first line contains an integer $N$, indicating the number of players.}
+
+\textsf{Then follows $N$ lines, i-th line contains $4$ string $X,S,Y,T$, indicating the i-th player tells Emily, "Player X is a S or Player Y is a T."}
+
+$1\le N\le 26$
+
+$X,Y\in\{'a','b',\ldots,'z'\}$
+
+$S,T\in\{"villager","werewolf"\}$
+
+\output
+
+\textsf{Print a line of lowercase letters denote the werewolves players, separated by white space.}
+
+\textsf{If all players are villagers print "All".}
+
+\textsf{If there are no situation which obey the rules above, print "Nie" instead.}
+
+If there are multiple solutions, any solution will be accepted.
+
+\sample
+
+\noindent\begin{tabular}{|p{5cm}|p{5cm}|} \hline
+Input & Output\\ \hline
+\tabincell{l}{
+2\\
+a villager a villager\\
+b werewolf b villager\\
+}& \tabincell{l}{
+Nie
+} \\ \hline
+\tabincell{l}{
+2\\
+a villager a werewolf\\
+a werewolf b villager\\
+}& \tabincell{l}{
+All
+} \\ \hline
+\tabincell{l}{
+7\\
+a werewolf f werewolf\\
+a werewolf e werewolf\\
+e werewolf f villager\\
+c villager f werewolf\\
+c villager d villager\\
+d villager f villager\\
+c werewolf c villager\\
+}& \tabincell{l}{
+c e f 
+} \\ \hline
+\end{tabular}
+
+%-----
+\problem{TianHe-2A}
+
+\textsf{TianHe-2 is the fastest supercomputer in the world from June 2013 to June 2016. In September 2017, National Supercomputer Center in Guangzhou announced to upgrade TianHe-2 supercomputing system by the end of the year, replacing the original Intel Xeon Phi accelerator with the domestic accelerator matrix 2000. The upgraded TianHe-2 is called TianHe-2A. The number of nodes has increased from 16000 to 17792, and the floating-point performance has increased from 54.9pflops to 94.97pflops.}
+
+\textsf{During a TianHe-2A's schedule, the cluster workload manager allocates $n$ computing nodes to users so they can perform work. To simplify this problem, all the $n$ computing nodes are considered to be in a line from left to right and indexed from $0$ to $n-1$. At the beginning each node $i$ holds a nonnegative integer $a_i$. Then the nodes are ready to work, by executing any of the following commands:}
+
+\begin{enumerate}
+	\item $div\,l\,r\,w$: $\forall i \in [l,r],a_i\to \lfloor\frac{a_i}{w}\rfloor$
+	\item $sqr\,l\,r$: $\forall i \in [l,r],a_i\to \lfloor\sqrt{a_i}\rfloor$
+	\item $phi\,l\,r$: $\forall i \in [l,r],a_i\to \phi(a_i)$
+	\item $ask\,l\,r$: Ask the max value from $a_l$ to $a_r$.
+\end{enumerate}
+
+\textsf{Now WuK wants you to simulate the operation of Tianhe-2A.}
+
+\input
+
+\textsf{The first line of the input gives the number of test cases, $t$. $t$ test cases follow.}
+
+\textsf{Each test case starts with a line containing two integers $n,m$, the number of computing nodes and the number of opeartions.}
+
+\textsf{The next line contains $n$ integers $a_0,a_1,\ldots,a_{n-1}$.}
+
+\textsf{Then, there are $m$ more lines, each line contains a command as before.}
+
+$1<t\leq 20$
+
+$0<n,m,w\leq17792$, and $w$ is an integer
+
+$0\le l\le r<n$
+
+$\forall i \in [0,n),0\le a_i<17792$
+
+\output
+
+\textsf{For each $ask$ command, you are asked to output a integer on a new line.}
+
+\sample
+
+\noindent\begin{tabular}{|p{5cm}|p{5cm}|} \hline
+Input & Output\\ \hline
+\tabincell{l}{
+1\\
+10 10\\
+0 1 2 3 4 5 6 7 8 9\\
+ask 0 4\\
+phi 4 4\\
+ask 4 4\\
+ask 0 4\\
+ask 6 9\\
+sqr 5 9\\
+ask 7 7\\
+ask 9 9\\
+div 0 9 3\\
+ask 0 9\\
+}& \tabincell{l}{
+4\\
+2\\
+3\\
+9\\
+2\\
+3\\
+1\\
+} \\ \hline
+\end{tabular}
+		
+\subitem{\\Note}
+
+\textsf{The Euler function phi is an important kind of function in number theory, $\phi(n)$ represents the amount of the numbers which are smaller than n and coprime to n, and this function has a lot of beautiful characteristics.}
+
+\textsf{Let me put it another way, Euler function $\phi(i)=\sum_{j=1}^{i-1}[\gcd(i,j)=1]$. Moreover, $\phi(0)=0,\phi(1)=1,\phi(2)=1,\phi(3)=2,\phi(4)=2,\ldots$}
+
+\end{document}
